@@ -1,26 +1,26 @@
 export default class Character {
-  constructor(type) {
+  constructor(name, type) {
+    this.name = name;
     this.type = type;
-    this.attack = undefined;
-    this.distance = undefined;
-    this.stoned = undefined;
+    this.distance = 2;
+    this.stoned = false;
   }
 
-  set stoned() {
-    this.stoned = true
+  set stoned(value) {
+    this._stoned = value;
   }
 
   get stoned() {
-    return this.stoned
+    return this._stoned;
   }
 
-  set attack() {
-    //this.attack = attack
+  set attack(value) {
+    this._attack = value;
   }
 
-   get attack() {
-    const attack = this.attack * (1 - (this.distance - 1) / 10);
-    if (this.stoned === true) {
+  get attack() {
+    const attack = this._attack * (1 - (this.distance - 1) / 10);
+    if (this._stoned) {
       return attack - Math.log2(this.distance) * 5;
     }
     return attack;
