@@ -1,4 +1,4 @@
-import Character from "./app";
+import Character from './app';
 
 export default class Daemon extends Character {
   constructor(name, type) {

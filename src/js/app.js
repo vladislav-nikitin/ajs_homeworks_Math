@@ -7,20 +7,20 @@ export default class Character {
   }
 
   set stoned(value) {
-    this._stoned = value;
+    this.stone = value;
   }
 
   get stoned() {
-    return this._stoned;
+    return this.stone;
   }
 
   set attack(value) {
-    this._attack = value;
+    this.attacked = value;
   }
 
   get attack() {
-    const attack = this._attack * (1 - (this.distance - 1) / 10);
-    if (this._stoned) {
+    const attack = this.attacked * (1 - (this.distance - 1) / 10);
+    if (this.stone) {
       return attack - Math.log2(this.distance) * 5;
     }
     return attack;
